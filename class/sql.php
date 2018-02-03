@@ -19,7 +19,7 @@ class Sql extends PDO{
             $stmt->execute();
             return $stmt;
     }
-    public function select($rawQuery, $params = array()):array{
+    public function select($rawQuery, $params = array()){
         $stmt = $this->query($rawQuery, $params);
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
