@@ -58,16 +58,10 @@ class Usuario{
 
     public function login($login, $password){
         $sql = new Sql();
-        try{
-            $results = $sql->select("SELECT * FROM tb_usuarios WHERE dessenha = :PASSWORD",array(
-                //":LOGIN"=>$login
-                ":PASSWORD"=>$password
+            $results = $sql->select("SELECT * FROM tb_usuarios WHERE deslogin = :LOGIN AND dessenha = :PASSWORD",array(
+                ':LOGIN'=>$login,
+                ':PASSWORD'=>$password
             ));
-            var_dump($results);
-        }catch(Exception $e){
-            echo "erro ".$e;
-        }
-        
         if(count($results)>0){
             $row = $results[0];
             $this->setIdusuario($row['idusuario']);
