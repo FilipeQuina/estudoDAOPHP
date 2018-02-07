@@ -18,11 +18,21 @@ echo json_encode($search);
 $usuario = new Usuario();
 $usuario->login("user","123456");
 echo $usuario;
-*/
+
 $usuario = new Usuario();
-$usuario->login("3","123456");
+$usuario->login("user","123456");
 echo $usuario;
 
+$aluno = new Usuario("abcd","seila");
+$aluno->insert();
+echo $aluno;
 
+$usuario = new Usuario();
+$usuario->loadById(8);
+$usuario->update("ola","casaqui");
 
+$usuario = new Usuario();
+$usuario->loadById(8);
+$usuario->delete();
+*/
 ?>
